@@ -27,7 +27,7 @@ public class Product {
         return name;
     }
 
-    public Boolean getBought() {
+    public Boolean getIsBought() {
         return isBought;
     }
 

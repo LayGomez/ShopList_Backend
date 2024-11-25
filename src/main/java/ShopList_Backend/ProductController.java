@@ -25,7 +25,7 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<?> createProduct(@RequestBody Product product) {
         Optional<Product> optionalProduct = shopListRepository.findByName(product.getName());
-        if (optionalProduct.isPresent()) return new ResponseEntity<>("El producto existe", HttpStatus.BAD_REQUEST);
+        if (optionalProduct.isPresent()) return new ResponseEntity<>("El producto ya existe", HttpStatus.BAD_REQUEST);
 
         Product savedProduct = shopListRepository.save(product);
         return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
